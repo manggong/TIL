@@ -1,12 +1,8 @@
 2019.12.09.
 
-
-
 # IT서비스와 보안
 
 ## 1. 정보보안
-
-
 
 ### - 보안의 3요소
 
@@ -16,8 +12,6 @@
   - 적절한 권한을 가진 사용자에 의해 인가된 방법으로만 정보를 변경할 수 있도록 하는 것
 - 가용성(Availability)
   - 정보 자산에 대해 적절한 시간에 접근 가능한 것을 의미
-
-
 
 ### - 시스템 보안
 
@@ -37,11 +31,7 @@
   - 시스템은 계정과 패스워드 관리, 세션 관리, 접근 제어, 권한 관리 등을 충분히 잘 갖추고도 보안적인 문제가 발생할 수 있음
   - 이는 시스템 자체의 결함에 의한 것으로 이결함을 체계적으로 관리하는 것이 취약점 관리이다.
 
-
-
 ## 2. 계정과 패스워드 관리
-
-
 
 ### - 인증수단
 
@@ -49,8 +39,6 @@
 - 기본 구성 요소는 아이디와 패스워드
 - 식별(Identification)이란 아이디라는 문자열을 통해 그 자신이 누군인지 확인하는 과정
 - 아이디만으로는 정확한 식별이 어려워 인증을 위한 다른 무언가(패스워드)를 요청
-
-
 
 ### - 패스워드 보안의 4가지 인증 방법
 
@@ -62,12 +50,9 @@
 
 - 위치하는 곳 (Something You Are) : 현재 접속을 시도하는 위치의 적절성을 확인하는 방법 (ex. 콜백, FDS)
 
-
-
-
 ### - Windows 계정 관리
 
-~~~
+```
 C:\Users\myanj>net user ? ⇐ 명령어 사용법
 이 명령에 대한 구문:
 
@@ -215,7 +200,7 @@ Administrator
 myanj
 명령을 잘 실행했습니다.
 
-~~~
+```
 
 - 관리자 계정 관리
   - Administrator 계정은 Administrators 그룹에서 삭제할 수 없지만, 계정 이름을 변경하거나 "계정 사용 안 함"으로 설정 가능
@@ -226,16 +211,12 @@ myanj
     - 로컬 사용자 및 그룹 관리 콘솔 실행(lusrmgr.msc) > Administrator 계정 선택 > 마우스 오른쪽 클릭 후 속성 메뉴 선택 > "계정 사용 안 함" 선택 후 확인 버튼 클릭
     - 명령 프롬포트 > NET USER administrator / ACTIVE:NO
 
-
-
-- Guest 계정 관리
+* Guest 계정 관리
   - Guest 계정은 암호를 필요로 하지 않아 보안상 취약
   - Guest 계정이 활성화되어 있을 경우에 Guest 계정으로 로그인하여 시스템 정보를 탈취하거나 관리자 그룹에 등록하여 권한상승과 같은 악성행위를 시도할 수 있으므로, Guest 계정을 "계정 사용 안함"으로 설정하는 것이 안전 (기본적으로 "계정 사용 안 함"으로 설정되어 있음)
   - "계정 사용 안 함" 설정 방법
     - 로컬 사용자 및 그룹 관리 콘솔 실행(lusrmgr.msc) > Guest 계정 선택 > 마우스 오른쪽 클릭 후 속성 메뉴 선택 > "계정 사용 안 함" 선택후 확인 버튼 클릭
     - 명령 프로포트 > NET USER guest /ACTIVE:NO
-
-
 
 - 불필요한 계정 관리
 
@@ -249,24 +230,18 @@ myanj
 
     - 명령 프롬포트 > NET USER username / ACTIVE:NO
 
-      
-
-- 계정 잠금 임계값 설정
+* 계정 잠금 임계값 설정
 
   - 사용자 계정을 잠금으로 설정하는 실패한 로그인 시도 횟수를 설정하며, 5회 설정을 권고한다.
   - 잠금 설정된 계정은 관리자가 다시 설정하거나 계정의 잠금 기간이 만료될 때까지는 사용할 수 없다.
   - 계정 잠금 임계값 설정 방법
-    - 시작 > 실행 > 로컬 보안 정책[sectol.msc] > 계정 정책 > 계정 잠금 정책 > 계정 잠금 임계값 :  5번의 잘못된 로그온 시도
-
-
+    - 시작 > 실행 > 로컬 보안 정책[sectol.msc] > 계정 정책 > 계정 잠금 정책 > 계정 잠금 임계값 : 5번의 잘못된 로그온 시도
 
 - 계정 잠금 기간 설정
   - 자동으로 잠금 해제될 때까지 잠김 계정이 잠심 상태로 유지되는 시간(분)을 결정하며, 60분 설정을 권고한다.
   - 계정 잠금 기간을 0으로 설정하면 계정은 관리자가 명시적으로 잠금 해제할 때까지 잠김 상태를 유지한다.
   - 계정 잠금 기간 설정 방법
     - 시작 > 실행 > 로컬 보안 정책(sectol.msc) > 계정 정책 > 계정 잠금 정책 > 계정 잠금 기간 정책 : 60분
-
-
 
 ### - Windows 패스워드 관리
 
@@ -279,65 +254,59 @@ myanj
   - 최소 암호 사용 기간 : 1일 (특정 비밀번호의 사용 빈도를 낮춤)
   - 해독 가능한 암호화를 사용하여 암호 저장 : 사용 안 함 (시스템 간의 연동을 할 때 사용 함)
 
-
-
 ### - Linux 계정 관리
 
 - /etc/passwd
 
   - 계정 목록을 저장하고 있는 파일
 
-    ~~~
+    ```
                      root : x : 0 : 0 : root : /root : /bin/bash
-    ~~~
+    ```
 
     - 사용자 계정
     - 패스워드가 암호화되어 shadow 파일에 저장되어 있음
     - 사용자 번호(UID : User ID)
-    - 그룹번호(GID  : Group ID)
+    - 그룹번호(GID : Group ID)
     - 사용자 이름
     - 사용자의 홈 디렉터리 (일반 사용자는 /home 디렉터리 하위에 위치)
     - 사용자의 쉘(shell)
 
+* 파일 접근 권한
 
-
-- 파일 접근 권한
-
-  ~~~
+  ```
               drwxr-xr-x 2 root root 4096 Nov 10 17:26 alternatives
-  ~~~
+  ```
 
   - 파일에 대한 접근 권한
   - 해당 파일에 링크되어 있는 파일의 개수
   - 해당 파일을 생성한 계정
   - 해당 파일을 생성한 계정이 속한 그룹
 
-- 파일에 대한 접근 권한
+* 파일에 대한 접근 권한
 
   - 파일속성 : d
-- 파일 소유자 권한 :  rwx
+  - 파일 소유자 권한 : rwx
   - 그룹 권한 : r-x
-- 일반(other) 권한 : r-x
-  
-- 파일 및 디렉터리 기본 권한
+  - 일반(other) 권한 : r-x
+
+* 파일 및 디렉터리 기본 권한
 
   - 기본 생성 최고 권한에서 umask 값을 뺀 값
 
   - 기본 생성 최고 권한 : 파일은 666, 디렉터리는 777
 
-    
-
 - Shadow 패스워드 이용
 
-  - /etc/passwd	파일은 일반 사용자가 읽을 수 있으므로 위험
+  - /etc/passwd 파일은 일반 사용자가 읽을 수 있으므로 위험
 
   - 암호화한 패스워드와 유효기간 등을 /etc/shadow 파일에 저장하고, root 계정만 읽을 수 있도록 제한
 
   - 패스워드에 대한 보안 정책 적용이 가능
 
-    ~~~
+    ```
                 root : $1$9L~L0oTwd : 12751 : 0 : 99999 : 7 : : :
-    ~~~
+    ```
 
     - 사용자계정
     - 암호화된 사용자의 패스워드
@@ -349,21 +318,19 @@ myanj
     - 1970년 1월 1일부터 계정이 완전 사용 정지된 날까지의 일자 수
     - 관리자가 임의로 사용할 수 있는 부분
 
-
-
 ### - PASSWD 파일
 
 - shadow 파일 사용 안함
 
-~~~
+```
 root@kali:/etc# pwunconv
 root@kali:/etc# cat /etc/passwd | grep root
 root:$6$xhM1CJI.$opnnLHSL4M5H/mAP8eBK1WJcH/xwHoUe636gK92o0fqlBXc3uIje2FMoDvN2dIqGMaJbociP/Xn8oHgl7MiGf/:0:0:root:/root:/bin/bash
-~~~
+```
 
 - user00 계정 생성 및 패스워드 확인
 
-~~~
+```
 root@kali:/etc# adduser user00 ⇐ user00 계정을 생성
 Adding user `user00' ...
 Adding new group `user00' (1000) ...
@@ -375,12 +342,12 @@ Copying files from `/etc/skel' ...
 passwd: 암호를 성공적으로 업데이트했습니다
 user00의 사용자의 정보를 바꿉니다
 새로운 값을 넣거나, 기본값을 원하시면 엔터를 치세요
-	이름 []: 
-	방 번호 []: 
-	직장 번화번호 []: 
-	집 전화번호 []: 
-	기타 []: 
-Is the information correct? [Y/n] 
+	이름 []:
+	방 번호 []:
+	직장 번화번호 []:
+	집 전화번호 []:
+	기타 []:
+Is the information correct? [Y/n]
 root@kali:/etc# cat /etc/passwd | grep user00
 user00:$6$xgJeJrpI$l8ODhW4S4dzrkLTlx0YYoW1VaShde65q4hUDaIPv1mQnSm5n.VQHtJGREvlxwnHSIHhtXzoUccsjcPj8SWUlo.:1000:1000:,,,:/home/user00:/bin/bash
 
@@ -394,11 +361,11 @@ user00@kali:~$ cat /etc/passwd | grep root
 root:$6$xhM1CJI.$opnnLHSL4M5H/mAP8eBK1WJcH/xwHoUe636gK92o0fqlBXc3uIje2FMoDvN2dIqGMaJbociP/Xn8oHgl7MiGf/:0:0:root:/root:/bin/bash
 
 ⇒ /etc/passwd 파일을 모든 사용자가 읽을 수 있으므로 계정 정보가 노출될 가능성이 높다.
-~~~
+```
 
 - shadow 파일 확인
 
-~~~
+```
 user00@kali:~$ exit
 logout
 root@kali:/etc# pwconv
@@ -411,9 +378,7 @@ user00@kali:~$ cat /etc/passwd | grep user00
 user00:x:1000:1000:,,,:/home/user00:/bin/bash
 user00@kali:~$ cat /etc/shadow | grep root
 cat: /etc/shadow: 허가 거부
-~~~
-
-
+```
 
 - 관리자 계정 관리
 
@@ -425,7 +390,6 @@ cat: /etc/shadow: 허가 거부
 
     - /etc/passwd 파일에서 생성한 계정의 UID를 "0"으로 변경
 
-      ~~~
+      ```
       vi /etc/passwd
-      ~~~
-
+      ```
