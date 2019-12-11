@@ -10,9 +10,7 @@ xss 완화 기법에는 입력 검증과 출력 필터링이 있다.
 
 - 입력에 스크립트가 있는지 확인하는 기법이다.
 
-  => 입력을 안전한 형태로 바꾼다. (=> HTML 인코딩/ 브라우저에 의미가 있는 특수문자를 이스케이필)
-
-
+  => 입력을 안전한 형태로 바꾼다. (=> HTML 인코딩/ 브라우저에 의미가 있는 특수문자를 이스케이핑)
 
 ## - 출력 필터링
 
@@ -23,10 +21,8 @@ xss 완화 기법에는 입력 검증과 출력 필터링이 있다.
   => 공격자는 내가 원하는 형태로 입력하지 않음 (Script, Html, Css 등 다양한 형태로 공격)
 
 - XSS가 막기 힘든이유
-  
+
   - 선별적으로 해야한다. (사용하고자 하는 스크립트와 공격 스크립트를 구별하여 선별해야 함.)
-
-
 
 ## 2. CSP(Content Security Policy) = 컨텐츠 보안 정책
 
@@ -36,23 +32,23 @@ xss 완화 기법에는 입력 검증과 출력 필터링이 있다.
 
 - 서버에서 제공하는 모든 것을 맹목적으로 신뢰하는 대신, 신뢰할 수 있는 콘텐츠 소스의 허용 목록을 생성할 수 있게 해주는 Content-Security-Policy HTTP 헤더를 정의하고 브라우저에는 이런 소스를 받은 리소스만 실행하거나 랜더링할 것을 지시 (서버에 무언가 요청하면, 서버가 헤더나 본문에 있는 CSP에 목록을 넣어서 브라우저로 전달 > 브라우저에서 목록에 있는 스크립트만 메모리에 올려 실행)
 
-- ex.) C-S-P: script-src ‘self’ https://apis.google.com  => 디렉티브(directive)
-   - 브라우저는 현재 페이지의 출처뿐 아니라 HTTPS를 통해 apis.google.com에서 제공되는 자바스크립트만 다운로드 해 실행
-     => ‘self’ = 동일 기원에서 가져온 것만 사용하겠다.
-     => 정의되지 않은 출처의 코드에 대해서는 오류를 발생
+- ex.) C-S-P: script-src ‘self’ https://apis.google.com => 디렉티브(directive)
+  - 브라우저는 현재 페이지의 출처뿐 아니라 HTTPS를 통해 apis.google.com에서 제공되는 자바스크립트만 다운로드 해 실행
+    => ‘self’ = 동일 기원에서 가져온 것만 사용하겠다.
+    => 정의되지 않은 출처의 코드에 대해서는 오류를 발생
 
-~~~
+```
 Content-Security-Policy: default-src 'none'; script-src 'self' ssl.google-analytics.com 'sha256-xzi4zkCjuC8lZcD2UmnqDG0vurmq12W/XKM5Vd0+MlQ='; style-src 'self' maxcdn.bootstrapcdn.com fonts.googleapis.com; font-src fonts.gstatic.com maxcdn.bootstrapcdn.com; img-src 'self' ssl.google-analytics.com;
-~~~
+```
 
-~~~
+```
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-    
-<% 
+
+<%
 	// HTTP 응답 헤더에 CSP를 추가
 	// response.setHeader("Content-Security-Policy", "img-src 'self'");
-%>    
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -64,7 +60,7 @@ Content-Security-Policy: default-src 'none'; script-src 'self' ssl.google-analyt
 <title>Insert title here</title>
 </head>
 <body>
-	
+
       <!-- 외부에서 가져오는 이미지 -->
 	<img src="https://unsplash.it/300/200" alt="CSP Should Block This Image From Loading">
 
@@ -75,7 +71,7 @@ Content-Security-Policy: default-src 'none'; script-src 'self' ssl.google-analyt
 	<script nonce="abcd">
 		alert("OK");
 	</script>
-	
+
 	<!-- 실행을 불허하는 스크립트 -->
 	<script>
 		alert("NO");
@@ -83,9 +79,7 @@ Content-Security-Policy: default-src 'none'; script-src 'self' ssl.google-analyt
 
 </body>
 </html>
-~~~
-
-
+```
 
 ## 3. 입력값 제한 방식
 
@@ -99,15 +93,11 @@ Content-Security-Policy: default-src 'none'; script-src 'self' ssl.google-analyt
 
 - 꾸준한 업데이트 필요
 
-  
-
 ### - 제한 목록(Black List)
 
 - 시스템에 위험성이 큰 것들을 제한 해 놓고 사용하지 않음
 - 블랙리스트 사용이 위험한 입력이 들어 올 수 있음
 - 블랙리스트를 사용하는 경우 => 모집합이 너무 크고, 변화가 많을 때 (ex. 공항 안면대조)
-
-
 
 ## 4. 웹 보안을 높이는 방법
 
@@ -121,9 +111,7 @@ Content-Security-Policy: default-src 'none'; script-src 'self' ssl.google-analyt
 
   => 공격자가 NONCE값을 알면 스크립트 공격 가능
 
-
-
-## 5. 해쉬 
+## 5. 해쉬
 
 해쉬는 임의의 크기를 가진 데이터를 고정된 데이터의 크기로 변환시키는 것을 말한다.
 
@@ -135,21 +123,15 @@ Content-Security-Policy: default-src 'none'; script-src 'self' ssl.google-analyt
 - 입력이 출력에 수렴한다. (= 다른 입력임에도 불구하고 같은값이 나올 수 있음)
 - 충돌회피
 
-
-
 ### - 해쉬 크래킹
 
 - 사전대입 공격
 - 무작위 공격
 - 레인보우 테이블 공격
 
-
-
 ### - 해쉬 크래킹 방어기법
 
 - 패스워드의 길이를 늘린다. (패스워드가 길면 사용자의 패스워드 분실 빈도가 높아짐 그러므로 "salt"를 이용 사용자의 패스워드와 임의 값을 붙여 늘려준다.)
-
-
 
 ### - 덧
 
@@ -158,8 +140,6 @@ Content-Security-Policy: default-src 'none'; script-src 'self' ssl.google-analyt
   => 비도는 키의 길이로 결정한다.
 
 - 인코딩/디코딩 : 일정한 규칙으로 값을 대체, 치완, 전위(ex.성경의 페이지수로 암호 전달 등)
-
-
 
 ## 6. 암호화 방식
 
@@ -171,25 +151,23 @@ Content-Security-Policy: default-src 'none'; script-src 'self' ssl.google-analyt
 - 유일키, 비밀키, 관용 암호화 방식
 - 단점 : 키 분배 및 관리의 문제가 생김
 
-~~~
+```
  A                                 B
 data
  +
 skey ---------???---------------> skey    <= 상대방에게 비밀키를 어떻게 전달할 것인가? -> 키 분배의 문제
 E(data) ------------------------> E(data)
-~~~
+```
 
-~~~
-  A      ----------------> B    ⇒ 통신 대상에 비례하여 키를 관리해야 한다. 
-       skey_ab                     → 키 관리의 문제 
+```
+  A      ----------------> B    ⇒ 통신 대상에 비례하여 키를 관리해야 한다.
+       skey_ab                     → 키 관리의 문제
          ----------------> C
-       skey_ac  
-         ----------------> D       
-       skey_ad 
+       skey_ac
+         ----------------> D
+       skey_ad
 
-~~~
-
-
+```
 
 ### - 비대칭키 암호화 방식
 
@@ -206,7 +184,7 @@ E(data) ------------------------> E(data)
 
 - 인증, 원본증명, 부인방지를 보장하는 방법
 
-  - (송신측) 송신자의 개인키로 복호화 => (전자)서명
+  - (송신측) 송신자의 개인키로 암호화 => (전자)서명
   - (수신측) 송신자의 공개키로 복호화 => (서명)검증
 
 - 단점
