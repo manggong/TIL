@@ -1,16 +1,14 @@
-f = open('text.txt', 'a')
-f.write("Life is too short")
-f.write("\n")
-f.write("you need java")
-f.close()
+class Service:
+    secret = "hello"
+    def setname(self, name):
+        self.name = name
+    def sum(self, a, b):
+        result = a + b
+        print("%s님 %s + %s = %s 입니다."  %(self.name, a, b, result))
 
+pey = Service()
 
-f = open('text.txt', 'r')
-body = f.read()
-f.close()
+pey.setname("홍길동")
 
-body = body.replace('java', 'python')
+print(pey.sum(1,4))
 
-f = open('text.txt', 'w')
-f.write(body)
-f.close()
