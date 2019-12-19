@@ -4,7 +4,7 @@ class Service:
         self.name = name
     def sum(self, a, b):
         result = a + b
-        print("%s님 %s + %s = %s 입니다."  %(self.name, a, b, result))
+        print("%s님 %s + %s = %s 입니다."%(self.name, a, b, result))
 
 pey = Service()
 
