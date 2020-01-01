@@ -1,0 +1,17 @@
+{
+  "name": "yangster",
+  "version": "1.0.0",
+  "description": "To make SNS",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "start service"
+  },
+  "author": "KIMJIHWAN",
+  "license": "ISC"
+}
