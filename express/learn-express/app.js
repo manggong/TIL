@@ -13,6 +13,12 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// To create custum middleware
+app.use(function(req, res, next){ 
+  console.log(req.url, 'I am middleware');
+  next();
+});
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
