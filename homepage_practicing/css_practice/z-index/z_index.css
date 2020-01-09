@@ -1,0 +1,26 @@
+div {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+}
+
+#b1 {
+    background: green;
+    top: 30px;
+    left: 30px;
+    z-index: 1;
+}
+
+#b2 {
+    background: orange;
+    top: 60px;
+    left: 60px;
+    z-index: 5;
+}
+
+#b3 {
+    background: skyblue;
+    top: 90px;
+    left: 90px;
+    z-index: 3;
+}
