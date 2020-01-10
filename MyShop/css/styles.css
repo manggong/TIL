@@ -6,6 +6,7 @@ a {
 i {
     color: #bababa;
 }
+
 img {
     position: relative;
     width: 30%;
@@ -17,22 +18,24 @@ img {
     position: fixed;
     width: 20%;
     height: 5%;
-    top: 40%;
+    top: 37%;
     left: 60%;
-    text-align: left; 
-       
+    text-align: left;
+    z-index: 2;
+
 }
 
-.head__column a{
+.head__column a {
     position: absolute;
 }
 
-#subject{
+#subject {
     position: fixed;
     font-size: 50px;
     color: #000000;
     margin: 0px 0px 0px 0px;
     padding: 0px;
+    z-index: 2;
 }
 
 #menu {
@@ -42,16 +45,17 @@ img {
     top: 47%;
     left: 60%;
     text-align: left;
+    z-index: 2;
 }
 
-.menu_class{
+.menu_class {
     color: #bababa;
     margin: 0px 0px 0px 0px;
-    line-height: 50%;    
+    line-height: 50%;
 }
 
-.menu_class:hover{
-    color: #000000;  
+.menu_class:hover {
+    color: #000000;
 }
 
 
@@ -59,12 +63,13 @@ img {
     position: fixed;
     float: right;
     width: 50%;
-    top: 63%;
+    top: 75%;
     left: 60%;
     text-align: left;
+    z-index: 2;
 }
 
-.footer_class{
+.footer_class {
     color: #bababa;
     margin: 0px 0px 0px 0px;
     line-height: 50%;
@@ -77,8 +82,33 @@ img {
     height: 100%;
     top: 10%;
     left: 30%;
+    z-index: 1;
 }
 
+.form-container {
+    position: fixed;
+    float: right;
+    width: 20%;
+    top: 47%;
+    left: 60%;
+    text-align: left;
+    z-index: 2;
+}
 
+.form-container form {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 50px;
+}
 
+.form-container input {
+    display: block;
+    text-align: center;
+    margin-left: 0;
+    margin-top: 10px;
+    border: 1px solid white;
+    border-radius: 7px;
+    width: 125px;
+    height: 20px;
 
+}

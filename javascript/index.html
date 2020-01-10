@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script>
+        window.document.write("welcom"); //window 객체의 데이터 DOM
+        document.write("Hello") // window.document.write랑 동일일하게 나옴 => .은 소유주를 표시
+    </script>
+    <script>
+        var subject1 = "hello!!!!!";
+        var subject2 = "hi!!!!!!";
+
+        function welcome(target) {
+            document.write(target);
+        }
+    </script>-->
+</head>
+
+<body>
+    바디영역<br />
+    <script src="7.externel_javascript.js"></script>
+    <!--    <script>
+            welcome(subject1);
+            welcome(window.subject2);
+        </script>-->
+
+    <h2>인라인 자바스크립트 작성</h2>
+    <button onclick="alert('Welcome');">웹프로그래밍</button>
+    <button onclick="welcome(subject1);">웰컴</button>
+    <a href="javascript:alert('hello!!!');">자바스크립트</a>
+</body>
+
+</html>
