@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>자바스크립트 이벤트 속성</title>
+    <script>
+        var str1 ="fail"
+        var str2 ="correct"
+    </script>
+    <style>
+        div{
+            width:50px;
+            height: 50px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        img{
+            width:50px;
+            height:80px;
+            float:left;
+        }
+
+        #b1{
+            background: red;
+        }
+
+        #b2{
+            background: green;
+        }
+
+        #b3{
+            background: aqua;
+        }
+
+        #b4{
+            background: yellow;
+        }
+
+        #b5{
+            background: cyan;
+        }
+    </style>
+</head>
+<body>
+    <h4>이벤트 처리</h4>
+    <img src="https://picsum.photos/id/237/200/300" onmouseover="this.src='https://picsum.photos/seed/picsum/200/300';" onmouseleave="this.src='https://picsum.photos/id/237/200/300';"/>
+    
+</body>
+</html>
