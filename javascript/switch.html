@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>switch</title>
+</head>
+<script>
+    var month;
+    var grade;
+
+    document.write("<h3>월 판정<h3>");
+    month = prompt("숫자를 입력해주세요");
+    switch (parseInt(month / 1)) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            grade = "31일까지 있습니다.";
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            grade = "30일까지 있습니다.";
+            break;
+        case 2:
+            grade = "28일까지 있습니다";
+            break;
+        default:
+            grade = "error";
+            break;
+    }
+    document.write("<hr>월 판정결과:");
+    document.write(month + "(" + grade + ")");
+</script>
+
+<body>
+
+</body>
+
+</html>
