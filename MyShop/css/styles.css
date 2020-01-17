@@ -112,3 +112,20 @@ img {
     height: 20px;
 
 }
+
+#login_form {
+	width: 100%;
+    max-width: 320px;
+    margin-bottom: 50px;
+}
+
+#login_form input{
+	display: block;
+    text-align: center;
+    margin-left: 0;
+    margin-top: 10px;
+    border: 1px solid white;
+    border-radius: 7px;
+    width: 125px;
+    height: 30px;
+}
