@@ -113,14 +113,15 @@ img {
 
 }
 
+/*비동기 CSS*/
 #login_form {
-	width: 100%;
+    width: 100%;
     max-width: 320px;
     margin-bottom: 50px;
 }
 
-#login_form input{
-	display: block;
+#login_form input {
+    display: block;
     text-align: center;
     margin-left: 0;
     margin-top: 10px;
