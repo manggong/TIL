@@ -1,14 +1,14 @@
 function Promise1() {
-  return new Promise(function(resolve, reject) {
-    setTimeout(function() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
       resolve("hello");
     }, 5000);
   });
 }
 
 function Promise2() {
-  return new Promise(function(resolve, reject) {
-    setTimeout(function() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
       resolve("world");
     }, 2000);
   });

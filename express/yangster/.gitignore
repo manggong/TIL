@@ -107,3 +107,7 @@ dist
 .vscode-test
 
 .env
+
+.package-lock.json
+
+.package.json

@@ -1,10 +1,13 @@
-var express = require('express');
-var http = require('http');
+const http = require('http');
+const fs = require('fs');
 
-var app = express();
-
-app.set('port', process.env.PORT || 3000);
-
-http.createServer(app).listen(app.get('port'), function () {
-    console.log('익스프레스 서버를 시작했습니다 :' + app.get('port'));
+http.createServer((req, res) => {
+    fs.readFile('./home.html', (err, data) => {
+        if (err) {
+            throw err;
+        }
+        res.end(data);
+    });
+}).listen(8081, () => {
+    console.log('8081번 포트에서 서버 대기 중입니다.');
 });
