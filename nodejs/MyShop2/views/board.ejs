@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> <%= title %> </title>
+    <style>
+        table {
+            width: 100%;
+            border: 1px solid #444444;
+        }
+
+        th,
+        td {
+            border: 1px solid #444444;
+        }
+
+        #board_title:focus {
+            outline: none;
+        }
+
+        #board_content:focus {
+            outline: none;
+        }
+
+        #board_title {
+            border: none;
+            position: relative;
+            width: 100%;
+        }
+
+        #board_content {
+            border: none;
+            position: relative;
+            width: 99%;
+            resize: none;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="client.js"></script>
+</head>
+
+<body>
+    글쓰기 화면...
+    <table>
+        <tr>
+            <td width="100px">글제목</td>
+            <td><input placeholder="제목을 입력하세요" id="board_title"></td>
+        </tr>
+        <tr>
+            <td width="100px">글내용</tdwidth="10px">
+            <td><textarea placeholder="내용을 입력하세요" id="board_content" rows="10"></textarea></td>
+        </tr>
+    </table>
+    <input type="button" value="제출" id="board_btn">
+</body>
+
+</html>

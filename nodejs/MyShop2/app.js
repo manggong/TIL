@@ -2,6 +2,7 @@ const contactRouter = require("./routes/contact");
 const indexRouter = require("./routes/index")
 const logoutRouter = require("./routes/logout");
 const loginRouter = require("./routes/login");
+const boardRouter = require("./routes/board");
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
@@ -34,6 +35,7 @@ app.use("/", indexRouter); // 새로고침 시 세션 생신 방지
 app.use("/contact", contactRouter);
 app.use("/login", loginRouter);
 app.use("/logout", logoutRouter);
+app.use("/board_write", boardRouter);
 
 app.listen(3000, () => {
   console.log("server ready!!!");

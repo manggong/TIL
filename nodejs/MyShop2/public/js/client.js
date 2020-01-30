@@ -1,6 +1,10 @@
 $(document).ready(function () {
+    $('#board_btn').click(function () {
+        window.open('board_write', "_black", "width=1000, height=700");
+    });
+
     $("#logout_btn").click(function () {
-        $.post("logout", {}, function (returnData) {
+        $.post("/logout", {}, function (returnData) {
             alert(returnData.message);
             location.reload();
         });
@@ -12,7 +16,7 @@ $(document).ready(function () {
         const send_param = {
             email
         };
-        $.post("login", send_param, function (returnData) {
+        $.post("/login", send_param, function (returnData) {
             alert(returnData.message);
             location.reload();
         });
@@ -28,7 +32,7 @@ $(document).ready(function () {
             email,
             comments
         };
-        $.post("contact", send_param, function (returnData) {
+        $.post("/contact", send_param, function (returnData) {
             alert(returnData.message);
         });
     });
