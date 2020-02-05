@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        #container {
+            padding: 50px;
+            background-color: #eee;
+        }
+
+        #container h1 {
+            font-size: 144px;
+            font-family: sans-serif;
+            color: #0000a8;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+
+        class HelloWorld extends React.Component {
+            render() {
+                return (
+                    <p><i>{this.props.greeting}{this.props.text}</i></p>
+                );
+            }
+        }
+
+        const destination = document.querySelector("#container");
+        ReactDOM.render(
+            <div>
+                <HelloWorld greeting="안녕하세요" text="지환" />
+                <HelloWorld greeting="hi" text="성준" />
+                <HelloWorld greeting="hello" text="기훈" />
+                <HelloWorld greeting="ok!!!" text="기현" />
+            </div>
+            ,
+            destination
+        );
+    </script>
+</body>
+
+</html>

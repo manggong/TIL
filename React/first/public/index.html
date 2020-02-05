@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>index</title>
+    <style>
+        div {
+            background-color: green;
+            width: 150px;
+            height: 200px;
+            text-align: center;
+            padding: 5px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $('#plus').click(function () {
+                let number = $('h1').text();
+                $('h1').text(++number);
+            });
+            $('#minus').click(function () {
+                let number = $('h1').text();
+                $('h1').text(--number);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1>0</h1><br>
+        <button id="plus">+</button>
+        <button id="minus">-</button>
+    </div>
+</body>
+
+</html>
