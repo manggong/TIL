@@ -1,3 +1,4 @@
+const memberRouter = require('./routes/memberRouter');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -5,6 +6,10 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/member', memberRouter);
 
 app.get('/', (req, res) => {
     res.json({
