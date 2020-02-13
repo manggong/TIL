@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/redux@latest/dist/redux.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>redux!!!</title>
+</head>
+
+<body>
+    <button id="del">delete</button>
+    <input />
+    <button id="add">add</button>
+
+    <br />
+    <div></div>
+    <script>
+        function reducer(state, action) { //2 리듀서 작성
+            if (state === undefined) {
+                state = [];
+            }
+            if (action.type === "add") {
+                return state.concat(action.value);
+            } else if (action.type === "del") {
+                return state.filter((item) => {
+                    return item !== action.value
+                });
+            } else {
+                return state;
+            }
+        }
+        const store = Redux.createStore(reducer); //1 스토어 생성
+        const state = store.getState(); //3 state 얻기
+
+        $(document).ready(function () {
+            store.subscribe(function () { //4 스토어 구독
+                $('div').text(store.getState());
+            });
+
+            $('#del').click(function () {
+                const data = $('input').val();
+                const action = {
+                    type: "del",
+                    value: data
+                };
+                store.dispatch(action); //5 스토어에 액션 전달
+                $('input').val("");
+            })
+
+            $('#add').click(function () {
+                const data = $('input').val();
+                const action = {
+                    type: "add",
+                    value: data
+                };
+                store.dispatch(action); //5 스토어에 액션 전달
+                $('input').val("");
+            });
+        });
+    </script>
+</body>
+
+</html>
