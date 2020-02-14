@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <button>모든 멤버 보기!!!</button>
+    <div></div>
+    <script>
+      $(document).ready(() => {
+        $("button").click(function() {
+          const send_parm = {};
+          $.post("member/selectAll", send_parm, function(returnData) {
+            let resultTxt = "";
+            returnData.message.forEach(member => {
+              resultTxt += member.name + "<br>";
+            });
+            $("div").html(resultTxt);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

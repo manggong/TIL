@@ -1,6 +1,7 @@
 const con = require("../db_con");
 const express = require("express");
 const router = express.Router();
+const User = require('../models').User;
 
 
 router.post('/login', (req, res) => {
@@ -28,7 +29,7 @@ router.get('/logout', (req, res) => {
     });
 });
 
-router.post('/insert', (req, res) => {
+/* router.post('/insert', (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const pw = req.body.pw;
@@ -45,6 +46,29 @@ router.post('/insert', (req, res) => {
             });
         }
     });
+}); */
+
+router.post('/insert', async (req, res) => {
+    const nick = req.body.name;
+    const email = req.body.email;
+    const password = req.body.pw;
+    const comments = req.body.comments;
+    try {
+        const result = await User.create({
+            email,
+            nick,
+            password
+        });
+        console.log(result);
+        res.json({
+            message: nick
+        });
+    } catch (err) {
+        console.log(err);
+        res.json({
+            message: false
+        });
+    }
 });
 
 module.exports = router;
