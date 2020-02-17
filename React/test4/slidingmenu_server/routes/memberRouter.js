@@ -2,9 +2,11 @@ const con = require("../db_con");
 const express = require("express");
 const router = express.Router();
 const User = require('../models').User;
+const {
+    getAllPosts
+} = require('./common');
 
-
-router.post('/login', (req, res) => {
+/* router.post('/login', (req, res) => {
     const email = req.body.email;
     const pw = req.body.pw;
     // 정적 쿼리 사용법
@@ -21,6 +23,29 @@ router.post('/login', (req, res) => {
             });
         }
     });
+}); */
+
+router.post('/login', async (req, res) => {
+    const email = req.body.email;
+    const password = req.body.pw;
+    try {
+        const result = await User.findOne({
+            where: {
+                email,
+                password
+            }
+        });
+        //console.log(result.nick)
+        res.json({
+            message: result.nick,
+            id: result.id,
+        });
+    } catch (err) {
+        console.log(err);
+        res.json({
+            message: false
+        });
+    }
 });
 
 router.get('/logout', (req, res) => {

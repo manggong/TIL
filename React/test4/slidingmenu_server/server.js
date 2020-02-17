@@ -1,4 +1,6 @@
 const memberRouter = require('./routes/memberRouter');
+const postRouter = require('./routes/postRouter');
+const followRouter = require('./routes/followRouter');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -8,13 +10,18 @@ sequelize.sync();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: true,
+    credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
 
 app.use('/member', memberRouter);
+app.use('/post', postRouter);
+app.use('/follow', followRouter);
 
 app.get('/', (req, res) => {
     res.json({

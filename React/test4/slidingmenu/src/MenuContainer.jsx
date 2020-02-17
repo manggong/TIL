@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import MenuButton from "./MenuButton";
 import Menu from "./Menu";
 import Home from "./Home";
-import Stuff from "./Stuff";
+import Post from "./Post";
 import Contact from "./Contact";
 import { Route, NavLink, HashRouter } from "react-router-dom";
 
@@ -42,7 +42,7 @@ class MenuContainer extends Component {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/stuff">STUFF</NavLink>
+                <NavLink to="/post">Post</NavLink>
               </li>
               <li>
                 <NavLink to="/contact">CONTACT</NavLink>
@@ -50,7 +50,7 @@ class MenuContainer extends Component {
             </ul>
             <div className="content">
               <Route exact path="/" component={Home}></Route>
-              <Route path="/stuff" component={Stuff}></Route>
+              <Route path="/post" component={Post}></Route>
               <Route path="/contact" component={Contact}></Route>
             </div>
           </div>

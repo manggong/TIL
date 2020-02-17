@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./css/Menu.css";
 import $ from "jquery";
-import { Route, NavLink, HashRouter } from "react-router-dom";
+import { NavLink, HashRouter } from "react-router-dom";
+import {} from "jquery.cookie";
 
 class Menu extends Component {
   state = {
@@ -13,6 +14,7 @@ class Menu extends Component {
   logout = () => {
     $.get("http://localhost:8080/member/logout", returnData => {
       $.removeCookie("login_name");
+      $.removeCookie("login_id");
       if (returnData.message) {
         this.setState({
           loginStyle: "inline-block",
@@ -31,6 +33,7 @@ class Menu extends Component {
     $.post("http://localhost:8080/member/login", send_param, returnData => {
       if (returnData.message) {
         $.cookie("login_name", returnData.message);
+        $.cookie("login_id", returnData.id);
         this.setState({
           login_email: returnData.message,
           loginStyle: "none",
@@ -54,7 +57,6 @@ class Menu extends Component {
       display: this.state.logoutStyle
     };
     let login_name;
-
     if ($.cookie("login_name")) {
       login_name = $.cookie("login_name");
       loginStyle.display = "none";
@@ -86,20 +88,19 @@ class Menu extends Component {
             </NavLink>
           </div>
           <div style={logoutStyle}>
-            {login_email}님 환영합니다.
+            {login_name}님 환영합니다.
             <button onClick={this.logout}>로그아웃</button>
           </div>
           <h2>
-            <a href="/">HOME</a>
+            <NavLink exact to="/">
+              Home
+            </NavLink>
           </h2>
           <h2>
-            <a href="/">ABOUT</a>
+            <NavLink to="/post">Post</NavLink>
           </h2>
           <h2>
-            <a href="/">CONTACT</a>
-          </h2>
-          <h2>
-            <a href="/">SEARCH</a>
+            <NavLink to="/contact">Contact</NavLink>
           </h2>
         </HashRouter>
       </div>

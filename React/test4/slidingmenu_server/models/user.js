@@ -5,7 +5,7 @@ module.exports = function (sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING(45),
       allowNull: false,
-      primaryKey: true
+      unique: true
     },
     nick: {
       type: DataTypes.STRING(45),
@@ -18,6 +18,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   }, {
     tableName: 'user',
-    timestamps: false,
+    timestamps: true,
+    paranoid: true
   });
 };
