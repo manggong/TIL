@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        let webSocket;
+        let chat_id;
+
+        function startChat() {
+            webSocket = new WebSocket("ws://localhost:8080");
+            webSocket.onopen = function () {
+                chat_id = "[" + document.getElementById("chat_id").value + "]";
+                if (chat_id) {
+                    alert("Start chatting");
+                } else {
+                    alert("plz input your chat id");
+                }
+            };
+            webSocket.onmessage = function (event) {
+                document.getElementById("ta").value += event.data;
+            };
+        }
+
+        function sendMessage(event) {
+            if (event.key === "Enter") {
+                webSocket.send(
+                    chat_id + document.getElementById("send_input").value + "\n"
+                );
+                document.getElementById("send_input").value = "";
+            }
+        }
+        let source;
+
+        function sse() {
+            source = new EventSource("/sse");
+            source.onmessage = function (event) {
+                console.log(event.data);
+            };
+        }
+
+        function sse_stop() {
+            source.close();
+        }
+    </script>
+</head>
+
+<body>
+    <h2>With <code>"express"</code> npm package</h2>
+    <form action="/api/upload" enctype="multipart/form-data" method="post">
+        <div>Text field title: <input type="text" name="title" /></div>
+        <div>
+            File: <input type="file" name="someExpressFiles" multiple="multiple" />
+        </div>
+        <input type="submit" value="Upload" />
+    </form>
+    <hr />
+
+    <input id="chat_id" placeholder="ID" />
+    <button onclick="startChat()">
+        접속
+    </button>
+    <br /><br />
+    <textarea rows="10" cols="50" id="ta"></textarea><br />
+    <input id="send_input" onkeypress="sendMessage(event)" />
+    <br /><br />
+    <hr />
+    <button onclick="sse()">경매진행보기</button>
+    <button onclick="sse_stop()">경매진행 그만 보기</button>
+    <br /><br />
+</body>
+
+</html>

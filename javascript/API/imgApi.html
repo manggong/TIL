@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var i = 0,
+            imgTotal = 3;
+        var imgFile = "image";
+
+        function change() {
+            var obj = document.getElementById('img1');
+            i = (i + 1) % imgTotal;
+            imgFile = imgFile + i + '.jpg';
+            obj.src = imgFile;
+            imgFile = "image";
+        }
+    </script>
+    이미지 보기 &nbsp;&nbsp;
+    <input type="button" value="next" onclick="change()">
+    <hr>
+    <img id="img1" src="image0.jpg" width="200" height="150">
+    <hr>
+</body>
+
+</html>
