@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>without_Redux</title>
+</head>
+<style>
+    .container{
+        border: 1px solid;
+        width: 500px;
+        height: 200px;
+    }
+</style>
+<script>
+    window.onload = function(){
+        const red_btn = document.querySelector("#red_btn");
+        const green_btn = document.querySelector("#green_btn");
+        const blue_btn = document.querySelector("#blue_btn");
+        let redDivColorControl = document.getElementById("red").style;
+        let greenDivColorControl = document.getElementById("green").style;
+        let blueDivColorControl = document.getElementById("blue").style;
+        
+        red_btn.addEventListener("click",changeColorRed,false);
+        function changeColorRed(){
+            document.getElementById("red").style.backgroundColor = "#ff0000";
+            document.getElementById("green").style.backgroundColor = "#ff0000";
+            document.getElementById("blue").style.backgroundColor = "#ff0000";
+        }
+
+        green_btn.addEventListener("click",changeColorGreen,false);
+        function changeColorGreen(){
+            redDivColorControl.backgroundColor = "#00ff00";
+            greenDivColorControl.backgroundColor = "#00ff00";
+            blueDivColorControl.backgroundColor = "#00ff00";
+        }
+
+        blue_btn.addEventListener("click",changeColorBlue,false);
+        function changeColorBlue(){
+            redDivColorControl.backgroundColor = "#0000ff";
+            greenDivColorControl.backgroundColor = "#0000ff";
+            blueDivColorControl.backgroundColor = "#0000ff";
+        }    
+    }
+</script>
+<body>
+    <div id = "red" class="container">
+        <h1>red</h1>
+        <input id="red_btn" type="button" value="click me!!!" />
+    </div>
+    <br/>
+    <div id = "green" class="container">
+        <h1>green</h1>
+        <input id="green_btn" type="button" value="click me!!!" />
+    </div>
+    <br/>
+    <div id = "blue" class="container">
+        <h1>blue</h1>
+        <input id="blue_btn" type="button" value="click me!!!" />
+    </div>
+    
+</body>
+</html>
