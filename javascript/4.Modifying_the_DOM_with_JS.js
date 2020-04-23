@@ -1,1 +1,0 @@
-title.style.color ="red";
