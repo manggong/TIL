@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+      header {
+        border-bottom: 1px solid gray;
+        padding-left: 20px;
+      }
+      footer {
+        border-top: 1px solid gray;
+        text-align: center;
+      }
+      .content {
+        display: flex;
+      }
+      .content nav {
+        border-right: 1px solid gray;
+      }
+      .content aside {
+        border-left: 1px solid gray;
+      }
+      nav,
+      aside {
+        flex-basis: 200px;
+        flex-shrink: 0;
+      }
+      main {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>성배 레이아웃 연습</h1>
+      </header>
+      <section class="content">
+        <nav>
+          <ul>
+            <li>html</li>
+            <li>css</li>
+            <li>javascript</li>
+          </ul>
+        </nav>
+        <main>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto,
+          itaque aut voluptatem dolores magnam voluptatum quasi quo aliquam
+          harum quisquam, eveniet autem? Sit fuga ducimus quibusdam eaque
+          fugiat? Omnis.
+        </main>
+        <aside>
+          이곳은 광고가 들어 갈 자리 입니다.
+        </aside>
+      </section>
+      <footer>
+        역시 깃허브는 김맹꽁, 이곳은 푸터 입니다.
+      </footer>
+    </div>
+  </body>
+</html>
