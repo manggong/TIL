@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  background-color: skyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
+
+/* STOP WATCH */
+.stop_watch {
+}
+
+.stop_watch h1 {
+  font-size: 48px;
+}
+
+.stop_watch h2 {
+  font-size: 36px;
+}
+
+.stop_watch p {
+  font-size: 24px;
+}
+
+.stop_watch button {
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 10px 20px 10px 20px;
+  margin: 5px;
+  font-size: 18px;
+}
