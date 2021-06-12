@@ -1,0 +1,37 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-size: 20px;
+  color: #353535;
+  font-family: 'Roboto', 'NanumSquare', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+ul li {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* intro section */
+.intro_section1 .main_title {
+  font-size: 8vw;
+  font-family: 'Nanum Myeongjo';
+  font-weight: 700;
+  position: absolute;
+  top: 50vh;
+  left: 50vh;
+  margin-top: -15vw;
+  margin-left: -3vw;
+  width: 100%;
+}
+
+.intro_section1 .sub_title {
+  font-size: 1.2vw;
+  font-weight: 500;
+  position: absolute;
+  top: 50vh;
+  left: 50vh;
+  margin-top: 5vw;
+  margin-left: 13vw;
+}
