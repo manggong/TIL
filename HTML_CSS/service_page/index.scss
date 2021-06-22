@@ -70,3 +70,30 @@ a {
     }
   }
 }
+
+.filter_scetion {
+  position: relative;
+  height: 53px;
+  display: flex;
+  border-bottom: 1px solid #efefef;
+  background-color: #fff;
+
+  .filter_deco {
+    width: 53px;
+    height: 53px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    border-right: 1px solid #efefef;
+  }
+
+  .filter_item {
+    width: 110px;
+    line-height: 53px;
+    font-size: 14px;
+    border-right: 1px solid #efefef;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+  }
+}
